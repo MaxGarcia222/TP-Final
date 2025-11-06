@@ -4,14 +4,14 @@ public abstract class Usuario {
     protected String nombre;
     protected String apellido;
     protected String mail;
-    protected String contraseña;
+    protected String contrasenia;
     protected TipoUsuario tipo;
 
-    public Usuario(String nombre, String apellido, String mail, String contraseña, TipoUsuario tipo) {
+    public Usuario(String nombre, String apellido, String mail, String contrasenia, TipoUsuario tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.mail = mail;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.tipo = tipo;
     }
 
@@ -39,12 +39,12 @@ public abstract class Usuario {
         this.mail = mail;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public TipoUsuario getTipo() {
@@ -57,7 +57,7 @@ public abstract class Usuario {
 
     public boolean iniciarSesion(String mail, String contraseña) {
         if (mail.equals(this.mail)){
-            if (contraseña.equals(this.contraseña)){
+            if (contraseña.equals(this.contrasenia)){
                 return true;
             } else {
                 throw new ContraseniaIncorrectaE("Contraseña Incorrecta.");
@@ -72,10 +72,10 @@ public abstract class Usuario {
     }
 
     public boolean cambiarContrasenia(String Contraseña) {
-        if (contraseña.equals(this.contraseña)){
+        if (contrasenia.equals(this.contrasenia)){
             throw new ContraseniaIncorrectaE ("La contraseña ingresada es identica a la anterior. Ingrese una nueva.");
         } else {
-            this.contraseña = contraseña;
+            this.contrasenia = contrasenia;
             return true;
         }
     }
