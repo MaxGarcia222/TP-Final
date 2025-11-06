@@ -2,6 +2,8 @@ package com.example.tpfinal;
 
 public abstract class Usuario {
     protected String nombre;
+    protected static int id;
+    protected int contador = 0;
     protected String apellido;
     protected String mail;
     protected String contraseña;
@@ -13,6 +15,7 @@ public abstract class Usuario {
         this.mail = mail;
         this.contraseña = contraseña;
         this.tipo = tipo;
+        id = ++contador;
     }
 
     public String getNombre() {
