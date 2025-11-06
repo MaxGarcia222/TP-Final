@@ -54,4 +54,29 @@ public abstract class Usuario {
     public void setTipo(TipoUsuario tipo) {
         this.tipo = tipo;
     }
+
+    public boolean iniciarSesion(String mail, String contraseña) {
+        if (mail.equals(this.mail)){
+            if (contraseña.equals(this.contraseña)){
+                return true;
+            } else {
+                throw new ContraseniaIncorrectaE("Contraseña Incorrecta.");
+            }
+        } else {
+            throw new UsuarioNoEncontradoE("Mail Incorrecto.");
+        }
+    }
+
+    public void cerrarSesion() {
+        //??????? como e
+    }
+
+    public boolean cambiarContrasenia(String Contraseña) {
+        if (contraseña.equals(this.contraseña)){
+            throw new ContraseniaIncorrectaE ("La contraseña ingresada es identica a la anterior. Ingrese una nueva.");
+        } else {
+            this.contraseña = contraseña;
+            return true;
+        }
+    }
 }
